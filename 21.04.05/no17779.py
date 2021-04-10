@@ -54,7 +54,7 @@ for i in range(1,n+1):
         d1,d2=1,1
         while j-d1>=1 and i+d1+d2<=n:
             while j+d2<=n and i+d1+d2<=n:
-                print(i,j,d1,d2)
+                #print(i,j,d1,d2)
                 result.append(gary(i,j,d1,d2))
                 d2+=1
             d1+=1
