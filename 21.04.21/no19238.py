@@ -36,10 +36,12 @@ def excute_road(x,y,dx,dy):
         
 #print(excute_road(tx,ty,passenger_x[0],passenger_y[0]))
 temp_m=m
+
 for j in range(m):
     sum_fuel=0
     distance=100
     for i in range(temp_m):
+        
         ux,uy,temp_distance=excute_road(tx,ty,passenger_x[i],passenger_y[i])
         if temp_distance<distance:
             distance=temp_distance
@@ -54,13 +56,21 @@ for j in range(m):
                 if dy>passenger_y[i]:
                     dx,dy=passenger_x[i],passenger_y[i]
                     distance_number=i
+    del passenger_x[distance_number]
+    del passenger_y[distance_number]
+    
+    temp_m-=1
     tx,ty,distance2=excute_road(dx,dy,destination_x[distance_number],destination_y[distance_number])
+    del destination_x[distance_number]
+    del destination_y[distance_number]
     if distance+distance2>f:
         print(-1)
         exit(0)
     else:
         f-=distance+distance2
         f+=distance2*2
+        #print('check')
+    #print('now-fuel',f,distance,distance2,tx,ty,dx,dy,distance_number,destination_x,destination_y)
 print(f)
 
 
